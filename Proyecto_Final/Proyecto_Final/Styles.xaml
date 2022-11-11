@@ -39,7 +39,7 @@
         <Setter Property="HorizontalOptions" Value="Start"></Setter>
         <Setter Property="FontFamily" Value="MutterKrauseNormal"></Setter>
         <Setter Property="WidthRequest" Value="300"></Setter>
-        <Setter Property="MaxLength" Value="20"></Setter>
+        <Setter Property="MaxLength" Value="60"></Setter>
     </Style>
 
     <Style x:Key="Edades" TargetType="Slider">

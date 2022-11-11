@@ -6,11 +6,8 @@
     
               
 
-    <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
-        <Label Text="pedorra" FontFamily="letra"></Label>
-        <Label FontFamily="fontello" Text="&#xE800;"></Label>
-        <Label FontFamily="fontello" Text="{x:Static icons:Icons.LockOpenAlt}"></Label>
-        <Label FontFamily="fontello" Text="{x:Static icons:Icons.LockOpen}"></Label>
+    <StackLayout>
+        
     </StackLayout>
 
 </ContentPage>

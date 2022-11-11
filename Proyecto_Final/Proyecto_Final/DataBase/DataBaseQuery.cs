@@ -13,6 +13,7 @@ namespace Proyecto_Final.DataBase
         {
             _database = new SQLiteAsyncConnection(dbPaht);
             _database.CreateTableAsync<UserModel>().Wait();
+            _database.CreateTableAsync<OrganizadorModel>().Wait();
         }
 
         #region CRUD
