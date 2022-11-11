@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewmodel="clr-namespace:Proyecto_Final.ViewModel" x:DataType="viewmodel:Registrate2ViewModel"
+             x:Class="Proyecto_Final.Views.Registrate2">
+    <ContentPage.Content>
+        <Grid BackgroundColor="{StaticResource Primary}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="3"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" Text="Bienvenido a fanaticos al deporte" Padding="50,150,0,0" x:Name="PrimerLabel"/>
+
+            <Label Grid.Row="1 " Text="Por favor ingresa tu edad" FontFamily="" FontAttributes="Bold" Padding="50,30,0,15"></Label>
+
+            <Slider Grid.Row="2" Style="{StaticResource Edades}" x:Name="SliderOptions" Value="{Binding EdadTxt , Mode=TwoWay}"/>
+
+            <Label Grid.Row="3" HorizontalOptions="Center" Text="{Binding EdadTxt}"></Label>
+
+            <Entry Grid.Row="4" HorizontalOptions="Center"  Placeholder="Telefono"  Keyboard="Telephone"  MaxLength="10" Text="{Binding TelefonoTxt, Mode=TwoWay}"></Entry>
+
+            <StackLayout Grid.Row="5" Orientation="Horizontal" Padding="50,20,0,0">
+                <Label Text="Modo Organizador" FontFamily="" FontAttributes="Bold" ></Label>
+                <Switch  x:Name="switchTransform" Toggled="switchTransform_Toggled" IsToggled="{Binding TpUsuarioTxt}"/>
+            </StackLayout>
+
+            <StackLayout Grid.Row="6" Padding="50,1,0,0">
+                <Label x:Name="TercerLabel" Style="{StaticResource LabelError}"></Label>
+            </StackLayout>
+
+            <StackLayout Grid.Row="7" Padding="50,20,30,30" IsVisible="{Binding TpUsuarioTxt}" x:Name="StacTransf">
+                <Label FontFamily="" FontAttributes="Bold" FontSize="13" Text="Acabas de seleccionar modo Organizador de enventos este modo te permitira subir tus eventos para que todo el mundo los vean y puedan participar de ellos, que esperas unete a esta comunidad"></Label>
+                <Entry Placeholder="Cedula" Keyboard="Numeric" MaxLength="10"></Entry>
+                <Entry Placeholder="Dirección" Keyboard="Chat" MaxLength="30" ></Entry>
+            </StackLayout>
+
+            <StackLayout Grid.Row="8" x:Name="StyleStac" HorizontalOptions="Center">
+                <Button Text="Registrate" Clicked="Button_Clicked"></Button>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
