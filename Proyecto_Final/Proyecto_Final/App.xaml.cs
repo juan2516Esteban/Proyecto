@@ -27,27 +27,12 @@ namespace Proyecto_Final
         {
             InitializeComponent();
 
-            MainPage = new CustomNav(new IngresarView());
+            MainPage = new CustomNav(new AgregarEvento());
         }
 
         protected override void OnStart()
         {
-            OrganizadorModel user = new OrganizadorModel
-            {
-                Name = "pepito",
-                LastName = "Alcachofa",
-                Email = "251628",
-                Password = "1234",
-                Edadades = 19,
-                phone = "313438",
-                Cedula = "1088825376",
-                Dirección = "Calle 14"
-            };
-
-            var resul = App.Db.SaveModelAsync<OrganizadorModel>(user, true);
-
-
-
+ 
             List<UserModel> Listusers = new List<UserModel>();
 
             Listusers = App.Db.GetTableModel<UserModel>().Result;

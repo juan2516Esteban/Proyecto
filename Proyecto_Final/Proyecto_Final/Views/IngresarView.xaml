@@ -1,8 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
              x:Class="Proyecto_Final.Views.IngresarView"
-             NavigationPage.HasNavigationBar="False">
+             NavigationPage.HasNavigationBar="False"
+           >
     
     <ContentPage.Content>
         <Grid BackgroundColor="{StaticResource Primary}">
@@ -15,8 +16,8 @@
             </Grid.RowDefinitions>
 
 
-            <StackLayout Grid.Row="0" VerticalOptions="Center" Padding="0,50,0,10">
-                <Image Source="LogoLogin.jpg"></Image>
+            <StackLayout Grid.Row="0" VerticalOptions="Center"  Padding="46,25,40,0">
+                <controls:CircleImage Source="logo.jpg" Aspect="AspectFill" WidthRequest="300" HeightRequest="300"></controls:CircleImage>
             </StackLayout>
 
             <StackLayout Grid.Row="1" HorizontalOptions="Center" Orientation="Horizontal" Spacing="10">

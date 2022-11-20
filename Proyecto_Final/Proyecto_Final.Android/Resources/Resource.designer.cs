@@ -16553,7 +16553,7 @@ namespace Proyecto_Final.Droid
 			public const int ic_mtrl_chip_close_circle = 2131165290;
 			
 			// aapt resource value: 0x7F07006B
-			public const int LogoLogin = 2131165291;
+			public const int logo = 2131165291;
 			
 			// aapt resource value: 0x7F07006C
 			public const int material_cursor_drawable = 2131165292;
