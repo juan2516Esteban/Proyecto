@@ -13,5 +13,10 @@ namespace Proyecto_Final.Views
             InitializeComponent();
             BindingContext = new RegistrateViewModel();
         }
+
+        private async void TapGestureRecognizer_Tapped(object sender, System.EventArgs e)
+        {
+            await Navigation.PushAsync(new IngresarView());
+        }
     }
 }

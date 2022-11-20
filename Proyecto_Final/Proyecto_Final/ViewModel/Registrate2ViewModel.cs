@@ -1,5 +1,10 @@
 ﻿
+using Android.App;
 using Proyecto_Final.Model;
+using Xamarin.Forms;
+using System;
+using Application = Xamarin.Forms.Application;
+using Proyecto_Final.Views;
 
 namespace Proyecto_Final.ViewModel
 {
@@ -67,6 +72,9 @@ namespace Proyecto_Final.ViewModel
                 user.LastName = jdl.LastName;
 
                 await App.Db.SaveModelAsync<UserModel>(user, true);
+                await App.Db.SaveModelAsync<UserModel>(user, false);
+                await Application.Current.MainPage.DisplayAlert("Tus datos an sido guardado correctamente", "Bienvendo " + jdl.Name + " ya eres parte de fanaticos al deporte, que esperas para iniciar seción", "Ok");
+                await Application.Current.MainPage.Navigation.PushAsync(new IngresarView()); 
             }
             else
             {
@@ -82,6 +90,10 @@ namespace Proyecto_Final.ViewModel
                 user2.Cedula = CedulaTxt;
 
                 await App.Db.SaveModelAsync<OrganizadorModel>(user2, true);
+                await App.Db.SaveModelAsync<OrganizadorModel>(user2, false);
+                await Application.Current.MainPage.DisplayAlert("Tus datos an sido guardado correctamente", "Bienvendo " + jdl.Name + " ya eres parte de fanaticos al deporte, que esperas para iniciar seción", "Ok");
+                await Application.Current.MainPage.Navigation.PushAsync(new IngresarView());
+
             }
         }
 

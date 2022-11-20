@@ -1,10 +1,14 @@
-﻿using GalaSoft.MvvmLight.Command;
+﻿using Android.App;
+using GalaSoft.MvvmLight.Command;
+using Java.Security;
 using Proyecto_Final.Model;
+using Proyecto_Final.Views;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
+using Application = Xamarin.Forms.Application;
 
 namespace Proyecto_Final.ViewModel
 {
@@ -34,7 +38,6 @@ namespace Proyecto_Final.ViewModel
         {
             get { return new RelayCommand(IngreasarMethods); }
         }
-
         #endregion
 
         #region Methods
@@ -54,11 +57,13 @@ namespace Proyecto_Final.ViewModel
             else if (ListUserOrganizador.Count > 0)
             {
                 await Application.Current.MainPage.DisplayAlert("Bienvenido", "Acabas de ingresar a fanaticos al deporte, como Organizador de enventos", "Ok");
+                await Application.Current.MainPage.Navigation.PushAsync(new AgregarEvento());
             }
             else
             {
                 await Application.Current.MainPage.DisplayAlert("El usuario no Existe","El usuario no se encuentra en la base de datos , por favor verifica tus datos y vuelve a intentarlo","Ok");
             }
+
         }
         #endregion
     }
