@@ -32,10 +32,27 @@ namespace Proyecto_Final
 
         protected override void OnStart()
         {
+            OrganizadorModel user = new OrganizadorModel
+            {
+                Name = "pepito",
+                LastName = "Alcachofa",
+                Email = "251628",
+                Password = "1234",
+                Edadades = 19,
+                phone = "313438",
+                Cedula = "1088825376",
+                Dirección = "Calle 14"
+            };
 
-            List<UserModel> listUser2 = Db.GetTableModel<UserModel>().Result;
+            var resul = App.Db.SaveModelAsync<OrganizadorModel>(user, true);
 
-            List<OrganizadorModel> ListContact = Db.GetTableModel<OrganizadorModel>().Result;
+
+
+            List<UserModel> Listusers = new List<UserModel>();
+
+            Listusers = App.Db.GetTableModel<UserModel>().Result;
+
+
 
         }
 
