@@ -21,11 +21,11 @@
             </StackLayout>
 
             <StackLayout Grid.Row="1" HorizontalOptions="Center" Orientation="Horizontal" Spacing="10">
-                <Entry Placeholder="Correo Electronico" Text="{Binding CorreoTxt,Mode=TwoWay}" Keyboard="Email"></Entry>
+                <Entry Placeholder="Correo Electronico" Text="{Binding CorreoTxt,Mode=TwoWay}" Keyboard="Email"  ClearButtonVisibility="WhileEditing"></Entry>
             </StackLayout>
 
             <StackLayout Grid.Row="2" Spacing="40">
-                <Entry Placeholder="Contraseña" Text="{Binding ContraseñaTxt,Mode=TwoWay}" Keyboard="Default" IsPassword="True" Margin="5"></Entry>
+                <Entry Placeholder="Contraseña" Text="{Binding ContraseñaTxt,Mode=TwoWay}" Keyboard="Default" IsPassword="True" Margin="5"  ClearButtonVisibility="WhileEditing"></Entry>
                 <Button Text="Iniciar Seción" Command="{Binding IngresarCommand, Mode=TwoWay}" ></Button>
             </StackLayout>
 

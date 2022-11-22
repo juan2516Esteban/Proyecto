@@ -56,10 +56,45 @@ namespace Proyecto_Final.ViewModel
         public string Deporte;
         public int Participantes;
         public int Poliza;
+        public int Ganancia;
+        public int GastosAd;
         public string PolizaTxt;
+        public string GanaciaTxt;
+        public string GastosAdicionales;
+        public int ValorTotal;
+        public string Descripción;
         #endregion
 
         #region Propiedades
+        public string DescripciónTxt
+        {
+            get { return Descripción; }
+            set { SetValue(ref this.Descripción, value); }
+        }
+        public int ValorTotalTxt
+        {
+            get { return ValorTotal; }
+            set { SetValue(ref this.ValorTotal, value); }
+        }
+
+        public string GastosAdicTxt
+        {
+            get { return GastosAdicionales; }
+            set { SetValue(ref this.GastosAdicionales, value); }
+        }
+
+        public int GatosAdicValue
+        {
+            get { return GastosAd; }
+            set
+            {
+                SetValue(ref this.GastosAd, value);
+                int GananciaAd2 = GastosAd * 1000;
+                SumaTotal();
+                GastosAdicTxt = GananciaAd2.ToString();
+            }
+
+        }
 
         public string NombreEventTxt
         {
@@ -79,9 +114,6 @@ namespace Proyecto_Final.ViewModel
             set { SetValue(ref this.Municipio, value); }
         }
 
-
-
-
         public string DeporteEventTxt
         {
             get { return Deporte; }
@@ -100,10 +132,25 @@ namespace Proyecto_Final.ViewModel
             get { return Poliza; }
             set { SetValue(ref this.Poliza, value);
                 int poliza2 = Poliza * 1000;
+                SumaTotal();
                 PolizaValueTxt = poliza2.ToString();
             }
 
         }
+
+        public int GanaciaValue
+        {
+            get { return Ganancia; }
+            set
+            {
+                SetValue(ref this.Ganancia, value);
+                int ganancia2 = Ganancia * 1000;
+                SumaTotal();
+                GananciaValueTxt = ganancia2.ToString();
+            }
+
+        }
+
         public string PolizaValueTxt
         {
             get { return PolizaTxt; }
@@ -111,12 +158,21 @@ namespace Proyecto_Final.ViewModel
 
         }
 
+        public string GananciaValueTxt
+        {
+            get { return GanaciaTxt; }
+            set { SetValue(ref this.GanaciaTxt, value); }
+        }
+
         #endregion
 
         #region Methods
 
-
-
+        public void SumaTotal()
+        {
+            int Valor2 = (GatosAdicValue * 1000) + (PolizaValue * 1000) + (GanaciaValue * 1000);
+            ValorTotalTxt = Valor2;
+        }
         #endregion
     }
 }
