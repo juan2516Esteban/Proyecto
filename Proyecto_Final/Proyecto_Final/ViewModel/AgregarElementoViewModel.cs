@@ -1,7 +1,10 @@
-﻿using Proyecto_Final.Model;
+﻿using GalaSoft.MvvmLight.Command;
+using Proyecto_Final.Model;
+using Proyecto_Final.Views;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace Proyecto_Final.ViewModel
@@ -173,6 +176,39 @@ namespace Proyecto_Final.ViewModel
             int Valor2 = (GatosAdicValue * 1000) + (PolizaValue * 1000) + (GanaciaValue * 1000);
             ValorTotalTxt = Valor2;
         }
+
+        public async void SubirEventMethods()
+        {
+            SubirEventModel evento = new SubirEventModel();
+
+            evento.NombreEvent = NombreEventTxt;
+            evento.MunicipioEvent = MunicipioEventTxt;
+            evento.UbicaciónEvent = LugarEventTxt;
+            evento.DeporteEvent = DeporteEventTxt;
+            evento.NumeroParticiEvent = ParticipantesValue;
+            evento.ValorPolizaEvent = PolizaValueTxt;
+            evento.ValorGananciaEvent = GananciaValueTxt;
+            evento.ValorAdicionales = GastosAdicTxt;
+            evento.ValorYTotalEvent = ValorTotalTxt;
+            evento.Descripción = DescripciónTxt;
+
+            await App.Db.SaveModelAsync<SubirEventModel>(evento, true);
+            await App.Db.SaveModelAsync<SubirEventModel>(evento, false);
+            await Application.Current.MainPage.DisplayAlert("Datos guardados correctamente", "el evento " + NombreEventTxt +" ha sido guardado correctamente en este momento puedes ver como se visualiza", "Ok");
+            await Application.Current.MainPage.Navigation.PushAsync(new AgregarEvento());
+
+        }
+
+        #endregion
+
+        #region Comands
+
+        public ICommand SubirEnventCommand
+        {
+            get { return new RelayCommand(SubirEventMethods); }
+        }
+
+
         #endregion
     }
 }

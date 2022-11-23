@@ -33,10 +33,11 @@ namespace Proyecto_Final
         protected override void OnStart()
         {
  
-            List<UserModel> Listusers = new List<UserModel>();
+            List<UserModel> Listusers = App.Db.GetTableModel<UserModel>().Result;
 
-            Listusers = App.Db.GetTableModel<UserModel>().Result;
+            List<OrganizadorModel> ListusersOrganizadores = App.Db.GetTableModel<OrganizadorModel>().Result;
 
+            List<SubirEventModel> Eventos = App.Db.GetTableModel<SubirEventModel>().Result;
 
 
         }

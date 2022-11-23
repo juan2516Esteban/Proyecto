@@ -49,7 +49,7 @@
                 </StackLayout>
 
                 <StackLayout Grid.Row="5" Style="{StaticResource registro}">
-                    <Label Text="Numero de participaste" x:Name="LabelPartcipantes" Style="{StaticResource TextNormal}" FontAttributes="Bold"></Label>
+                    <Label Text="Numero de participante" x:Name="LabelPartcipantes" Style="{StaticResource TextNormal}" FontAttributes="Bold"></Label>
                 </StackLayout>
 
                 <StackLayout Grid.Row="6" Orientation="Horizontal" Style="{StaticResource registro}">
@@ -99,13 +99,17 @@
                 </StackLayout>
 
                 <StackLayout Grid.Row="14" Style="{StaticResource registro}" Spacing="5">
-                    <Editor Placeholder="Descripción del evento" Background="black" MinimumWidthRequest="700" Text="{Binding DescripciónTxt ,Mode=TwoWay}"></Editor>
+                    <Editor Placeholder="Descripción del evento" Background="#CEE5D0" TextColor="Black" MinimumWidthRequest="700" Text="{Binding DescripciónTxt ,Mode=TwoWay}"></Editor>
                     <Label Text="Por favor poner en la descripción del evento como ese la premición, lugar, categoria si la hay, dia-fecha etc." Style="{StaticResource LabelError}"></Label>
                 </StackLayout>
 
                 <StackLayout Grid.Row="15" Style="{StaticResource registro}" Spacing="5">
                     <Label Text="Descripción: " Style="{StaticResource TextNormal}" FontAttributes="Bold"></Label>
                     <Label Text="{Binding DescripciónTxt}" Style="{StaticResource TextNormal}"></Label>
+                </StackLayout>
+
+                <StackLayout Grid.Row="16" HorizontalOptions="Center">
+                    <Button Text="Subir Evento" Command="{Binding SubirEnventCommand , Mode=TwoWay}"></Button>
                 </StackLayout>
                 
             </Grid>

@@ -14,6 +14,7 @@ namespace Proyecto_Final.DataBase
             _database = new SQLiteAsyncConnection(dbPaht);
             _database.CreateTableAsync<UserModel>().Wait();
             _database.CreateTableAsync<OrganizadorModel>().Wait();
+            _database.CreateTableAsync<SubirEventModel>().Wait();
         }
 
         #region CRUD
