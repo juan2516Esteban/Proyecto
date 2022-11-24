@@ -3,6 +3,7 @@ using Proyecto_Final.Model;
 using Proyecto_Final.Views;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -192,10 +193,15 @@ namespace Proyecto_Final.ViewModel
             evento.ValorYTotalEvent = ValorTotalTxt;
             evento.Descripción = DescripciónTxt;
 
-            await App.Db.SaveModelAsync<SubirEventModel>(evento, true);
-            await App.Db.SaveModelAsync<SubirEventModel>(evento, false);
-            await Application.Current.MainPage.DisplayAlert("Datos guardados correctamente", "el evento " + NombreEventTxt +" ha sido guardado correctamente en este momento puedes ver como se visualiza", "Ok");
-            await Application.Current.MainPage.Navigation.PushAsync(new AgregarEvento());
+
+            if (NombreEventTxt is null || NombreEventTxt == "" || MunicipioEventTxt is null || LugarEventTxt is null ||LugarEventTxt == ""|| DeporteEventTxt is null || ParticipantesValue == 0  || ValorTotalTxt == 0 || DescripciónTxt is null || DescripciónTxt == "" ) {
+                await Application.Current.MainPage.DisplayAlert("Por favor llenar los campos vacios", "Error no se pudo guadar la información", "ok");     
+            }
+            else {
+                await App.Db.SaveModelAsync<SubirEventModel>(evento, true);
+                await App.Db.SaveModelAsync<SubirEventModel>(evento, false);
+                await Application.Current.MainPage.DisplayAlert("Datos guardados correctamente", "el evento " + NombreEventTxt + " ha sido guardado correctamente en este momento puedes ver como se visualiza", "Ok");
+            }
 
         }
 

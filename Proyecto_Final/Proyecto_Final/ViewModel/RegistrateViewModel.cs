@@ -65,7 +65,7 @@ namespace Proyecto_Final.ViewModel
         {
             if (NombreTxt is null || ApellidoTxt is null || EmailTxt is null || ComfirmarTxt is null || ContraseñaTxt is null || NombreTxt == "" || ApellidoTxt == "" || EmailTxt == "" || ComfirmarTxt == "" || ContraseñaTxt == "")
             {
-                await Application.Current.MainPage.DisplayAlert("Por favor llenar los campos vacios", "", "ok");
+                await Application.Current.MainPage.DisplayAlert("Por favor llenar los campos vacios", "Error no se pudo guadar la información", "ok");
             }
             else if (ContraseñaTxt.ToString() != Comfirmar_Passw.ToString())
             {

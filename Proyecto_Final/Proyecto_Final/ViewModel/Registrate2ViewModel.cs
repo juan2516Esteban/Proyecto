@@ -59,41 +59,51 @@ namespace Proyecto_Final.ViewModel
 
         public async void RegisterMethot(UserModel jdl)
         {
-
-
-            if (TpUsuario == false)
+            if (EdadTxt == 0 || TelefonoTxt is null || TelefonoTxt == "")
             {
-                UserModel user = new UserModel();
-                user.phone = TelefonoTxt;
-                user.Edadades = EdadTxt;
-                user.Name = jdl.Name;
-                user.Email = jdl.Email;
-                user.Password = jdl.Password;
-                user.LastName = jdl.LastName;
-
-                await App.Db.SaveModelAsync<UserModel>(user, true);
-                await App.Db.SaveModelAsync<UserModel>(user, false);
-                await Application.Current.MainPage.DisplayAlert("Tus datos an sido guardado correctamente", "Bienvendo " + jdl.Name + " ya eres parte de fanaticos al deporte, que esperas para iniciar seción", "Ok");
-                await Application.Current.MainPage.Navigation.PushAsync(new IngresarView()); 
+                await Application.Current.MainPage.DisplayAlert("Por favor llenar los campos vacios", "Error no se pudo guadar la información", "ok");
             }
             else
             {
-                OrganizadorModel user2 = new OrganizadorModel();
+                if (TpUsuario == false)
+                {
+                    UserModel user = new UserModel();
+                    user.phone = TelefonoTxt;
+                    user.Edadades = EdadTxt;
+                    user.Name = jdl.Name;
+                    user.Email = jdl.Email;
+                    user.Password = jdl.Password;
+                    user.LastName = jdl.LastName;
 
-                user2.phone = TelefonoTxt;
-                user2.Edadades = EdadTxt;
-                user2.Name = jdl.Name;
-                user2.Email = jdl.Email;
-                user2.Password = jdl.Password;
-                user2.LastName = jdl.LastName;
-                user2.Dirección = DirecciónTxt;
-                user2.Cedula = CedulaTxt;
+                    await App.Db.SaveModelAsync<UserModel>(user, true);
+                    await App.Db.SaveModelAsync<UserModel>(user, false);
+                    await Application.Current.MainPage.DisplayAlert("Tus datos an sido guardado correctamente", "Bienvendo " + jdl.Name + " ya eres parte de fanaticos al deporte, que esperas para iniciar seción", "Ok");
+                    await Application.Current.MainPage.Navigation.PushAsync(new IngresarView());
+                }
+                else
+                {
+                    if (DirecciónTxt is null || DirecciónTxt == "" || CedulaTxt is null || CedulaTxt == "")
+                    {
+                        await Application.Current.MainPage.DisplayAlert("Por favor llenar los campos vacios", "Error no se pudo guadar la información", "ok");
+                    }
+                    else {
+                        OrganizadorModel user2 = new OrganizadorModel();
 
-                await App.Db.SaveModelAsync<OrganizadorModel>(user2, true);
-                await App.Db.SaveModelAsync<OrganizadorModel>(user2, false);
-                await Application.Current.MainPage.DisplayAlert("Tus datos an sido guardado correctamente", "Bienvendo " + jdl.Name + " ya eres parte de fanaticos al deporte, que esperas para iniciar seción", "Ok");
-                await Application.Current.MainPage.Navigation.PushAsync(new IngresarView());
+                        user2.phone = TelefonoTxt;
+                        user2.Edadades = EdadTxt;
+                        user2.Name = jdl.Name;
+                        user2.Email = jdl.Email;
+                        user2.Password = jdl.Password;
+                        user2.LastName = jdl.LastName;
+                        user2.Dirección = DirecciónTxt;
+                        user2.Cedula = CedulaTxt;
 
+                        await App.Db.SaveModelAsync<OrganizadorModel>(user2, true);
+                        await App.Db.SaveModelAsync<OrganizadorModel>(user2, false);
+                        await Application.Current.MainPage.DisplayAlert("Tus datos an sido guardado correctamente", "Bienvendo " + jdl.Name + " ya eres parte de fanaticos al deporte, que esperas para iniciar seción", "Ok");
+                        await Application.Current.MainPage.Navigation.PushAsync(new IngresarView());
+                    }
+                }
             }
         }
 

@@ -27,7 +27,7 @@ namespace Proyecto_Final
         {
             InitializeComponent();
 
-            MainPage = new CustomNav(new AgregarEvento());
+            MainPage = new CustomNav(new IngresarView());
         }
 
         protected override void OnStart()

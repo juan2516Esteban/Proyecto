@@ -43,28 +43,35 @@ namespace Proyecto_Final.ViewModel
         #region Methods
         public async void IngreasarMethods()
         {
-            string _query = "SELECT * FROM UserModel WHERE Email = '" + CorreoTxt.ToString() + "' AND Password = '" + ContraseñaTxt.ToString() + "' ";
-            string _queryOrganizador = "SELECT * FROM OrganizadorModel WHERE Email = '" + CorreoTxt.ToString() + "' AND Password = '" + ContraseñaTxt.ToString() + "' ";
-
-           List<UserModel> ListUser = App.Db.QueryModel<UserModel>(_query).Result;
-           List<OrganizadorModel> ListUserOrganizador = App.Db.QueryModel<OrganizadorModel>(_queryOrganizador).Result;
-
-            if (ListUser.Count > 0)
+            if (CorreoTxt is null || CorreoTxt == "" || ContraseñaTxt is null || ContraseñaTxt == "")
             {
-                await Application.Current.MainPage.DisplayAlert("Bienvenido", "Acabas de ingresar a fanaticos al deporte", "Ok");
+                await Application.Current.MainPage.DisplayAlert("Por favor llenar los campos vacios", "Error no se pudo guadar la información", "ok");
+            }
+            else {
 
-            }
-            else if (ListUserOrganizador.Count > 0)
-            {
-                await Application.Current.MainPage.DisplayAlert("Bienvenido", "Acabas de ingresar a fanaticos al deporte, como Organizador de enventos", "Ok");
-                await Application.Current.MainPage.Navigation.PushAsync(new AgregarEvento());
-            }
-            else
-            {
-                await Application.Current.MainPage.DisplayAlert("El usuario no Existe","El usuario no se encuentra en la base de datos , por favor verifica tus datos y vuelve a intentarlo","Ok");
-            }
+                string _query = "SELECT * FROM UserModel WHERE Email = '" + CorreoTxt.ToString() + "' AND Password = '" + ContraseñaTxt.ToString() + "' ";
+                string _queryOrganizador = "SELECT * FROM OrganizadorModel WHERE Email = '" + CorreoTxt.ToString() + "' AND Password = '" + ContraseñaTxt.ToString() + "' ";
 
+                List<UserModel> ListUser = App.Db.QueryModel<UserModel>(_query).Result;
+                List<OrganizadorModel> ListUserOrganizador = App.Db.QueryModel<OrganizadorModel>(_queryOrganizador).Result;
+
+                if (ListUser.Count > 0)
+                {
+                    await Application.Current.MainPage.DisplayAlert("Bienvenido", "Acabas de ingresar a fanaticos al deporte", "Ok");
+
+                }
+                else if (ListUserOrganizador.Count > 0)
+                {
+                    await Application.Current.MainPage.DisplayAlert("Bienvenido", "Acabas de ingresar a fanaticos al deporte, como Organizador de enventos", "Ok");
+                    await Application.Current.MainPage.Navigation.PushAsync(new AgregarEvento());
+                }
+                else
+                {
+                    await Application.Current.MainPage.DisplayAlert("El usuario no Existe", "El usuario no se encuentra en la base de datos , por favor verifica tus datos y vuelve a intentarlo", "Ok");
+                }
+            }
         }
+
         #endregion
     }
 }
