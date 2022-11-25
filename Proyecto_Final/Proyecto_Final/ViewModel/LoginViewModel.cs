@@ -1,13 +1,8 @@
-﻿using Android.App;
-using GalaSoft.MvvmLight.Command;
-using Java.Security;
+﻿using GalaSoft.MvvmLight.Command;
 using Proyecto_Final.Model;
 using Proyecto_Final.Views;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Windows.Input;
-using Xamarin.Forms;
 using Application = Xamarin.Forms.Application;
 
 namespace Proyecto_Final.ViewModel
@@ -47,7 +42,8 @@ namespace Proyecto_Final.ViewModel
             {
                 await Application.Current.MainPage.DisplayAlert("Por favor llenar los campos vacios", "Error no se pudo guadar la información", "ok");
             }
-            else {
+            else
+            {
 
                 string _query = "SELECT * FROM UserModel WHERE Email = '" + CorreoTxt.ToString() + "' AND Password = '" + ContraseñaTxt.ToString() + "' ";
                 string _queryOrganizador = "SELECT * FROM OrganizadorModel WHERE Email = '" + CorreoTxt.ToString() + "' AND Password = '" + ContraseñaTxt.ToString() + "' ";

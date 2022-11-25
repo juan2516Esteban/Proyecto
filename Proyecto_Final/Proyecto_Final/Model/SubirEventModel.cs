@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using SQLite;
+﻿using SQLite;
 
 namespace Proyecto_Final.Model
 {
@@ -10,19 +7,19 @@ namespace Proyecto_Final.Model
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
 
-        [MaxLength (50)]
+        [MaxLength(50)]
         public string NombreEvent { get; set; }
 
-        [MaxLength (30)]
+        [MaxLength(30)]
         public string MunicipioEvent { get; set; }
 
-        [MaxLength (70)]
+        [MaxLength(70)]
         public string UbicaciónEvent { get; set; }
 
-        [MaxLength (22)]
+        [MaxLength(22)]
         public string DeporteEvent { get; set; }
 
-        [MaxLength (5)]
+        [MaxLength(5)]
 
         public int NumeroParticiEvent { get; set; }
 
@@ -30,22 +27,29 @@ namespace Proyecto_Final.Model
 
         public string ValorPolizaEvent { get; set; }
 
-        [MaxLength (10)]
+        [MaxLength(10)]
 
-        public string ValorGananciaEvent { get; set;}
+        public string ValorGananciaEvent { get; set; }
 
-        [MaxLength (10)]
+        [MaxLength(10)]
 
         public string ValorAdicionales { get; set; }
 
-        [MaxLength (10)]
-        public int ValorYTotalEvent { get; set;}
+        [MaxLength(10)]
+        public int ValorYTotalEvent { get; set; }
 
-        [MaxLength (5000)]
+        [MaxLength(5000)]
         public string Descripción { get; set; }
 
+        [MaxLength(5)]
 
+        public int NumeroParticipantesIncritos { get; set; }
 
+        [MaxLength(5)]
 
+        public int CodigoPersonal { get; set; }
+
+        [MaxLength(200)]
+        public string Imagen { get; set; }
     }
 }

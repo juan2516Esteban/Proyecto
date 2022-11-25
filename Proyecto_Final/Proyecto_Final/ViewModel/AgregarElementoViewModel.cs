@@ -1,10 +1,7 @@
 ﻿using GalaSoft.MvvmLight.Command;
 using Proyecto_Final.Model;
-using Proyecto_Final.Views;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -12,7 +9,7 @@ namespace Proyecto_Final.ViewModel
 {
     internal class AgregarElementoViewModel : BaseViewModel
     {
-        public AgregarElementoViewModel(Picker piker, Picker municipio )
+        public AgregarElementoViewModel(Picker piker, Picker municipio)
         {
             List<DeportesModel> deportesModels = new List<DeportesModel>();
             deportesModels.Add(new DeportesModel { Nombre = "Baloncesto" });
@@ -128,13 +125,15 @@ namespace Proyecto_Final.ViewModel
         {
             get { return Participantes; }
             set { SetValue(ref this.Participantes, value); }
-            
+
         }
 
         public int PolizaValue
         {
             get { return Poliza; }
-            set { SetValue(ref this.Poliza, value);
+            set
+            {
+                SetValue(ref this.Poliza, value);
                 int poliza2 = Poliza * 1000;
                 SumaTotal();
                 PolizaValueTxt = poliza2.ToString();
@@ -180,6 +179,11 @@ namespace Proyecto_Final.ViewModel
 
         public async void SubirEventMethods()
         {
+
+         
+
+            var randomNumber = new Random().Next(0, 100);
+
             SubirEventModel evento = new SubirEventModel();
 
             evento.NombreEvent = NombreEventTxt;
@@ -192,15 +196,57 @@ namespace Proyecto_Final.ViewModel
             evento.ValorAdicionales = GastosAdicTxt;
             evento.ValorYTotalEvent = ValorTotalTxt;
             evento.Descripción = DescripciónTxt;
+            evento.CodigoPersonal = randomNumber;
 
+            #region ValiadciónDeImagen
 
-            if (NombreEventTxt is null || NombreEventTxt == "" || MunicipioEventTxt is null || LugarEventTxt is null ||LugarEventTxt == ""|| DeporteEventTxt is null || ParticipantesValue == 0  || ValorTotalTxt == 0 || DescripciónTxt is null || DescripciónTxt == "" ) {
-                await Application.Current.MainPage.DisplayAlert("Por favor llenar los campos vacios", "Error no se pudo guadar la información", "ok");     
+            if (DeporteEventTxt == "Baloncesto")
+            {
+                evento.Imagen = "iconBas.png";
+
             }
-            else {
+            else if(DeporteEventTxt == "Patinaje")
+            {
+                evento.Imagen = "logopatinaje.jpg";
+            }
+            else if (DeporteEventTxt == "Futbol")
+            {
+                evento.Imagen = "futbol.png";
+            }
+            else if(DeporteEventTxt == "Natación")
+            {
+                evento.Imagen = "natacion.png";
+            }
+            else if (DeporteEventTxt == "Ultimate")
+            {
+                evento.Imagen = "frisbee.jpg";
+            }
+            else if(DeporteEventTxt == "Voleyball")
+            {
+                evento.Imagen = "Voleyball.png";
+            }
+            else if (DeporteEventTxt == "Ciclismo de montaña")
+            {
+                evento.Imagen = "Ciclismo.jpg";
+            }
+            else if (DeporteEventTxt == "Golf")
+            {
+                evento.Imagen = "golf.png";
+            }
+            #endregion
+
+
+
+            if (NombreEventTxt is null || NombreEventTxt == "" || MunicipioEventTxt is null || LugarEventTxt is null || LugarEventTxt == "" || DeporteEventTxt is null || ParticipantesValue == 0 || ValorTotalTxt == 0 || DescripciónTxt is null || DescripciónTxt == "")
+            {
+                await Application.Current.MainPage.DisplayAlert("Por favor llenar los campos vacios", "Error no se pudo guadar la información", "ok");
+            }
+            else
+            {
                 await App.Db.SaveModelAsync<SubirEventModel>(evento, true);
                 await App.Db.SaveModelAsync<SubirEventModel>(evento, false);
-                await Application.Current.MainPage.DisplayAlert("Datos guardados correctamente", "el evento " + NombreEventTxt + " ha sido guardado correctamente en este momento puedes ver como se visualiza", "Ok");
+                await Application.Current.MainPage.DisplayAlert("Datos guardados correctamente", "el evento " + NombreEventTxt + " ha sido guardado correctamente en este momento puedes ver como se visualiza" +
+                    "imporatante tu codigo para hacer cualquier cambio al evento es " + randomNumber + ".", "Ok");
             }
 
         }

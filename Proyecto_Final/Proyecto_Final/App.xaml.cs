@@ -27,12 +27,12 @@ namespace Proyecto_Final
         {
             InitializeComponent();
 
-            MainPage = new CustomNav(new IngresarView());
+            MainPage = new CustomNav(new MainPage());
         }
 
         protected override void OnStart()
         {
- 
+
             List<UserModel> Listusers = App.Db.GetTableModel<UserModel>().Result;
 
             List<OrganizadorModel> ListusersOrganizadores = App.Db.GetTableModel<OrganizadorModel>().Result;

@@ -1,10 +1,6 @@
-﻿
-using Android.App;
-using Proyecto_Final.Model;
-using Xamarin.Forms;
-using System;
-using Application = Xamarin.Forms.Application;
+﻿using Proyecto_Final.Model;
 using Proyecto_Final.Views;
+using Application = Xamarin.Forms.Application;
 
 namespace Proyecto_Final.ViewModel
 {
@@ -86,7 +82,8 @@ namespace Proyecto_Final.ViewModel
                     {
                         await Application.Current.MainPage.DisplayAlert("Por favor llenar los campos vacios", "Error no se pudo guadar la información", "ok");
                     }
-                    else {
+                    else
+                    {
                         OrganizadorModel user2 = new OrganizadorModel();
 
                         user2.phone = TelefonoTxt;
