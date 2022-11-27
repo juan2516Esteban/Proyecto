@@ -1,9 +1,13 @@
 ﻿using GalaSoft.MvvmLight.Command;
 using Proyecto_Final.Model;
+using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
 using System.Windows.Input;
 using Xamarin.Forms;
+using SQLite;
+
+
 
 namespace Proyecto_Final.ViewModel
 {
@@ -64,6 +68,7 @@ namespace Proyecto_Final.ViewModel
         public string GastosAdicionales;
         public int ValorTotal;
         public string Descripción;
+        public int Codigo;
         #endregion
 
         #region Propiedades
@@ -76,6 +81,12 @@ namespace Proyecto_Final.ViewModel
         {
             get { return ValorTotal; }
             set { SetValue(ref this.ValorTotal, value); }
+        }
+
+        public int CodigoTxt
+        {
+            get { return Codigo; }
+            set { SetValue(ref this.Codigo, value); }
         }
 
         public string GastosAdicTxt
@@ -169,6 +180,7 @@ namespace Proyecto_Final.ViewModel
 
         #endregion
 
+
         #region Methods
 
         public void SumaTotal()
@@ -180,9 +192,8 @@ namespace Proyecto_Final.ViewModel
         public async void SubirEventMethods()
         {
 
-         
-
             var randomNumber = new Random().Next(0, 100);
+            CodigoTxt = randomNumber;
 
             SubirEventModel evento = new SubirEventModel();
 
@@ -196,7 +207,8 @@ namespace Proyecto_Final.ViewModel
             evento.ValorAdicionales = GastosAdicTxt;
             evento.ValorYTotalEvent = ValorTotalTxt;
             evento.Descripción = DescripciónTxt;
-            evento.CodigoPersonal = randomNumber;
+            evento.CodigoPersonal = CodigoTxt;
+           
 
             #region ValiadciónDeImagen
 
@@ -259,8 +271,6 @@ namespace Proyecto_Final.ViewModel
         {
             get { return new RelayCommand(SubirEventMethods); }
         }
-
-
         #endregion
     }
 }

@@ -20,7 +20,7 @@ namespace Proyecto_Final.Views
 
             if (deporte == 0 || deporte == 2 || deporte == 4 || deporte == 5)
             {
-                LabelPartcipantes.Text = "Numero limite de aquipos a participar";
+                LabelPartcipantes.Text = "Numero limite de equipos a participar";
             }
             else
             {

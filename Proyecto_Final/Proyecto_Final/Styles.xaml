@@ -85,4 +85,16 @@
         <Setter Property="HorizontalOptions" Value="Start"></Setter>
     </Style>
 
+    <Style x:Key="IconButton" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="{StaticResource  elementos_primarios}"></Setter>
+        <Setter Property="Background" Value="white"></Setter>
+        <Setter Property="TextColor" Value="Black"></Setter>
+        <Setter Property="CornerRadius" Value="20"></Setter>
+        <Setter Property="FontSize" Value="Medium"></Setter>
+        <Setter Property="HeightRequest" Value="40"></Setter>
+        <Setter Property="WidthRequest" Value="50"></Setter>
+        <Setter Property="HorizontalOptions" Value="Start"></Setter>
+       
+    </Style>
+
 </ResourceDictionary>

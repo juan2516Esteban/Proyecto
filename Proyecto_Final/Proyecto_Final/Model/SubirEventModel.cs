@@ -43,10 +43,6 @@ namespace Proyecto_Final.Model
 
         [MaxLength(5)]
 
-        public int NumeroParticipantesIncritos { get; set; }
-
-        [MaxLength(5)]
-
         public int CodigoPersonal { get; set; }
 
         [MaxLength(200)]
