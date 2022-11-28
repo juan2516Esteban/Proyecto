@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Proyecto_Final.Model;
+using System;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -16,7 +17,7 @@ namespace Proyecto_Final.Views.MaestroDetalle
 
         private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            var item = e.SelectedItem as MaestroDetailOrganizadorFlyoutMenuItem;
+            var item = e.SelectedItem as MenuLateralModel;
             if (item == null)
                 return;
 

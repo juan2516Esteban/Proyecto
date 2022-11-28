@@ -1,6 +1,7 @@
 ﻿using Proyecto_Final.DataBase;
 using Proyecto_Final.Model;
 using Proyecto_Final.Views;
+using Proyecto_Final.Views.MaestroDetalle;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -27,7 +28,7 @@ namespace Proyecto_Final
         {
             InitializeComponent();
 
-            MainPage = new CustomNav(new IngresarView());
+            MainPage = new CustomNav(new MaestroDetailOrganizador());
         }
 
         protected override void OnStart()

@@ -2,7 +2,8 @@
 <FlyoutPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Proyecto_Final.Views.MaestroDetalle.MaestroDetailOrganizador"
-             xmlns:pages="clr-namespace:Proyecto_Final.Views.MaestroDetalle">
+             xmlns:pages="clr-namespace:Proyecto_Final.Views.MaestroDetalle"
+             NavigationPage.HasNavigationBar="False">
   <FlyoutPage.Flyout>
     <pages:MaestroDetailOrganizadorFlyout x:Name="FlyoutPage" />
   </FlyoutPage.Flyout>

@@ -26,9 +26,5 @@ namespace Proyecto_Final.Model
         public string phone { get; set; }
 
 
-        [MaxLength(1)]
-
-        public int UnaVez { get; set; }
-
     }
 }

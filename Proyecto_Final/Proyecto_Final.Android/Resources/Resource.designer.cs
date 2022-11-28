@@ -20293,6 +20293,9 @@ namespace Proyecto_Final.Droid
 			// aapt resource value: 0x7F070098
 			public const int Voleyball = 2131165336;
 			
+			// aapt resource value: 0x7F070099
+			public const int wolf = 2131165337;
+			
 			static Drawable()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();

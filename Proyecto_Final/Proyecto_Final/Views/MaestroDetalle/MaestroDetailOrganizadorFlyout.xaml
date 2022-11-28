@@ -7,7 +7,7 @@
     <ListView x:Name="MenuItemsListView"
               SeparatorVisibility="None"
               HasUnevenRows="true"
-              ItemsSource="{Binding MenuItems}">
+              ItemsSource="{Binding ListTxt}">
       <ListView.Header>
         <Grid BackgroundColor="#03A9F4">
           <Grid.ColumnDefinitions>
@@ -24,7 +24,7 @@
           <Label
               Grid.Column="1"
               Grid.Row="2"
-              Text="AppName"
+              Text="Vista de Eventos"
               Style="{DynamicResource SubtitleStyle}"/>
         </Grid>
       </ListView.Header>
@@ -32,6 +32,7 @@
         <DataTemplate>
           <ViewCell>
             <StackLayout Padding="15,10" HorizontalOptions="FillAndExpand">
+                            <Image Source="{Binding Icono}" WidthRequest="15" HorizontalOptions="Center"></Image>
               <Label VerticalOptions="FillAndExpand" 
                     VerticalTextAlignment="Center" 
                     Text="{Binding Title}" 

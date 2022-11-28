@@ -1,5 +1,6 @@
 ﻿using GalaSoft.MvvmLight.Command;
 using Proyecto_Final.Model;
+using Proyecto_Final.Views.MaestroDetalle;
 using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
@@ -220,16 +221,20 @@ namespace Proyecto_Final.ViewModel
         }
         public async void Volver()
         {
-            await Application.Current.MainPage.Navigation.PushAsync(new MainPage());
+            await Application.Current.MainPage.Navigation.PushAsync(new MaestroDetailOrganizador());
             await PopupNavigation.Instance.PopAsync(true);
         }
 
+        public async void Volver2()
+        {
+            await PopupNavigation.Instance.PopAsync(true);
+        }
         #endregion
 
         #region Comads
         public ICommand VolverComads
         {
-            get { return new RelayCommand(Volver); }
+            get { return new RelayCommand(Volver2); }
         }
 
         public ICommand InscribirseComads
