@@ -9,6 +9,10 @@ using SQLite;
 
 
 
+
+
+
+
 namespace Proyecto_Final.ViewModel
 {
     internal class AgregarElementoViewModel : BaseViewModel
@@ -208,7 +212,6 @@ namespace Proyecto_Final.ViewModel
             evento.ValorYTotalEvent = ValorTotalTxt;
             evento.Descripción = DescripciónTxt;
             evento.CodigoPersonal = CodigoTxt;
-           
 
             #region ValiadciónDeImagen
 
@@ -217,7 +220,7 @@ namespace Proyecto_Final.ViewModel
                 evento.Imagen = "iconBas.png";
 
             }
-            else if(DeporteEventTxt == "Patinaje")
+            else if (DeporteEventTxt == "Patinaje")
             {
                 evento.Imagen = "logopatinaje.jpg";
             }
@@ -225,7 +228,7 @@ namespace Proyecto_Final.ViewModel
             {
                 evento.Imagen = "futbol.png";
             }
-            else if(DeporteEventTxt == "Natación")
+            else if (DeporteEventTxt == "Natación")
             {
                 evento.Imagen = "natacion.png";
             }
@@ -233,7 +236,7 @@ namespace Proyecto_Final.ViewModel
             {
                 evento.Imagen = "frisbee.jpg";
             }
-            else if(DeporteEventTxt == "Voleyball")
+            else if (DeporteEventTxt == "Voleyball")
             {
                 evento.Imagen = "Voleyball.png";
             }

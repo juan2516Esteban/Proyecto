@@ -19,6 +19,7 @@ namespace Proyecto_Final.ViewModel
         }
         public EventosViewModel(SubirEventModel Item)
         {
+            IdValue = Item.Id;
             NombreEventTxt = Item.NombreEvent;
             MunicipioEventTxt = Item.MunicipioEvent;
             LugarEventTxt = Item.UbicaciónEvent;
@@ -30,6 +31,7 @@ namespace Proyecto_Final.ViewModel
             GastosAdicTxt = Item.ValorAdicionales;
             PolizaValueTxt = Item.ValorPolizaEvent;
             GananciaValueTxt = Item.ValorGananciaEvent;
+            imagenValue = Item.Imagen;
         }
 
         #region Atributos
@@ -45,6 +47,9 @@ namespace Proyecto_Final.ViewModel
         public string Deporte;
         public string PolizaTxt;
         public string GanaciaTxt;
+        public string imagenEvent;
+        public int Id;
+        public bool SoloUnaVez = false;
         #endregion
 
         #region Propiedades
@@ -53,6 +58,13 @@ namespace Proyecto_Final.ViewModel
         {
             get { return Participantes; }
             set { SetValue(ref this.Participantes, value); }
+
+        }
+
+        public int IdValue
+        {
+            get { return Id; }
+            set { SetValue(ref this.Id, value); }
 
         }
         public string DescripciónTxt
@@ -83,7 +95,12 @@ namespace Proyecto_Final.ViewModel
             get { return NombreEvent; }
             set { SetValue(ref this.NombreEvent, value); }
         }
+        public string imagenValue
+        {
+            get { return imagenEvent; }
+            set { SetValue(ref this.imagenEvent, value); }
 
+        }
         public string LugarEventTxt
         {
             get { return LugarEvent; }
@@ -133,33 +150,77 @@ namespace Proyecto_Final.ViewModel
 
         public async void Inscribirse()
         {
+            if (SoloUnaVez == true)
+            {
+               await Application.Current.MainPage.DisplayAlert("Error", "solo te puedes inscribir una vez por evento", "ok");
+            }
+            else
+            {
+                if (ParticipantesValue > 0)
+                {
 
-          
-                int Incripción = ParticipantesValue-1;
+                    if (DeporteEventTxt == "Baloncesto" || DeporteEventTxt == "Futbol" || DeporteEventTxt == "Ultimate" || DeporteEventTxt == "Voleyball")
+                    {
+                        SoloUnaVez = true;
 
-                SubirEventModel evento = new SubirEventModel();
+                        SubirEventModel userUpdate = new SubirEventModel();
 
-                evento.NombreEvent = NombreEvent;
-                evento.MunicipioEvent = Municipio;
-                evento.UbicaciónEvent = LugarEvent;
-                evento.DeporteEvent = Deporte;
-                evento.NumeroParticiEvent = Participantes;
-                evento.ValorPolizaEvent = PolizaTxt;
-                evento.ValorGananciaEvent = GanaciaTxt;
-                evento.ValorAdicionales = GastosAdicionales;
-                evento.ValorYTotalEvent = ValorTotal;
-                evento.Descripción = Descripción;
-                evento.CodigoPersonal = Codigo;
-                evento.Imagen = "logopatinaje.jpg"; 
+                        userUpdate.Id = Id;
+                        userUpdate.NombreEvent = NombreEvent;
+                        userUpdate.MunicipioEvent = Municipio;
+                        userUpdate.UbicaciónEvent = LugarEvent;
+                        userUpdate.DeporteEvent = Deporte;
+                        userUpdate.NumeroParticiEvent = Participantes;
+                        userUpdate.ValorPolizaEvent = PolizaTxt;
+                        userUpdate.ValorGananciaEvent = GanaciaTxt;
+                        userUpdate.ValorAdicionales = GastosAdicionales;
+                        userUpdate.ValorYTotalEvent = ValorTotal;
+                        userUpdate.Descripción = Descripción;
+                        userUpdate.CodigoPersonal = Codigo;
+                        userUpdate.Imagen = imagenEvent;
 
-                await App.Db.DeleteModelAsync<SubirEventModel>(evento);
-                await Application.Current.MainPage.DisplayAlert("guadado", "solitario", "ok");
-                await Application.Current.MainPage.Navigation.PushAsync(new MainPage());
-                Volver();
-            
+
+                        //await App.Db.DeleteModelAsync<SubirEventModel>(userUpdate);
+                        await Application.Current.MainPage.DisplayAlert("guadado", "equipos", "ok");
+                        await Application.Current.MainPage.Navigation.PushAsync(new MainPage());
+                        Volver();
+                    }
+                    else
+                    {
+                        SoloUnaVez = true;
+                        ParticipantesValue -= 1;
+
+                        SubirEventModel userUpdate = new SubirEventModel();
+
+
+                        userUpdate.Id = Id;
+                        userUpdate.NombreEvent = NombreEvent;
+                        userUpdate.MunicipioEvent = Municipio;
+                        userUpdate.UbicaciónEvent = LugarEvent;
+                        userUpdate.DeporteEvent = Deporte;
+                        userUpdate.NumeroParticiEvent = Participantes;
+                        userUpdate.ValorPolizaEvent = PolizaTxt;
+                        userUpdate.ValorGananciaEvent = GanaciaTxt;
+                        userUpdate.ValorAdicionales = GastosAdicionales;
+                        userUpdate.ValorYTotalEvent = ValorTotal;
+                        userUpdate.Descripción = Descripción;
+                        userUpdate.CodigoPersonal = Codigo;
+                        userUpdate.Imagen = imagenEvent;
+
+                        await App.Db.SaveModelAsync<SubirEventModel>(userUpdate, false);
+                        await Application.Current.MainPage.DisplayAlert("Tu inscripción a sido exitosa", "Ya estas participando en el evento " + NombreEventTxt + " te esperamos", "ok");
+                        Volver();
+                    }
+                }
+                else
+                {
+                    await Application.Current.MainPage.DisplayAlert("Inscripciones cerradas", "la el limite de inscripciones fue superado, buena suerte para la proxima vez", "ok");
+                }
+            }
         }
         public async void Volver()
         {
+            await Application.Current.MainPage.Navigation.PushAsync(new MainPage());
             await PopupNavigation.Instance.PopAsync(true);
         }
 
@@ -177,5 +238,6 @@ namespace Proyecto_Final.ViewModel
         }
 
         #endregion
+
     }
 }
