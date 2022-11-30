@@ -1,8 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Proyecto_Final.Views.AgregarEvento"
-             NavigationPage.HasNavigationBar="False">
+             x:Class="Proyecto_Final.Views.AgregarEvento">
     <ContentPage.Content>
         
         <ScrollView VerticalOptions="FillAndExpand" Background="{StaticResource Primary}">
@@ -31,7 +30,7 @@
                 </StackLayout>
 
                 <StackLayout Grid.Row="1" Style="{StaticResource registro}">
-                    <Entry Placeholder="Nombre del evento" Keyboard="Chat" Text="{Binding NombreEventTxt , Mode=TwoWay}"  ClearButtonVisibility="WhileEditing"></Entry>
+                    <Entry Placeholder="Nombre del evento" Keyboard="Chat" Text="{Binding NombreEventTxt , Mode=TwoWay}"></Entry>
                 </StackLayout>
 
                 <StackLayout Grid.Row="2" Style="{StaticResource registro}">
@@ -40,7 +39,7 @@
                 </StackLayout>
 
                 <StackLayout Grid.Row="3" Style="{StaticResource registro}">
-                    <Entry Placeholder="Ubicación" Keyboard="Chat" Text="{Binding LugarEventTxt ,Mode=TwoWay}"  ClearButtonVisibility="WhileEditing"/>
+                    <Entry Placeholder="Ubicación" Keyboard="Chat" Text="{Binding LugarEventTxt ,Mode=TwoWay}"/>
                 </StackLayout>
 
                 <StackLayout Grid.Row="4" Style="{StaticResource registro}">
@@ -100,12 +99,12 @@
 
                 <StackLayout Grid.Row="14" Style="{StaticResource registro}" Spacing="5">
                     <Editor Placeholder="Descripción del evento" Background="#CEE5D0" TextColor="Black" MinimumWidthRequest="700" Text="{Binding DescripciónTxt ,Mode=TwoWay}"></Editor>
-                    <Label Text="Por favor poner en la descripción del evento como ese la premición, lugar, categoria si la hay, dia-fecha etc." Style="{StaticResource LabelError}"></Label>
+                    <Label Text="Por favor poner en la descripción del evento como es la premiación, lugar, categoria si la hay, dia-fecha etc." Style="{StaticResource LabelError}"></Label>
                 </StackLayout>
 
                 <StackLayout Grid.Row="15" Style="{StaticResource registro}" Spacing="5">
                     <Label Text="Descripción: " Style="{StaticResource TextNormal}" FontAttributes="Bold"></Label>
-                    <Label Text="{Binding DescripciónTxt}" Style="{StaticResource TextNormal}"></Label>
+                    <Label Text="{Binding DescripciónTxt }" Style="{StaticResource TextNormal}"></Label>
                 </StackLayout>
 
                 <StackLayout Grid.Row="16" HorizontalOptions="Center">

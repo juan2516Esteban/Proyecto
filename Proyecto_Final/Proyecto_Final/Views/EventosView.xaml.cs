@@ -3,9 +3,7 @@ using Proyecto_Final.ViewModel;
 using Proyecto_Final.Views.PopUp;
 using Rg.Plugins.Popup.Services;
 using Xamarin.Forms;
-using Rg.Plugins.Popup.Services;
-using Proyecto_Final.Views.PopUp;
-using Proyecto_Final.Model;
+
 
 namespace Proyecto_Final
 {

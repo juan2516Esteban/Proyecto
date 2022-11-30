@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Proyecto_Final.Views.MaestroDetalle.MaestroUsuarioDetail" xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             Title="Opciones">
+    <ScrollView>
+        <Grid BackgroundColor="{StaticResource Primary}">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <StackLayout Grid.Row="0" HorizontalOptions="CenterAndExpand">
+                <controls:CircleImage  Source="wolf.jpg" WidthRequest="100" HeightRequest="100"></controls:CircleImage>
+            </StackLayout>
+
+            <StackLayout Style="{StaticResource registro}" Grid.Row="1" Padding="60,1,60,20">
+
+                <Label Text="Bienvenido a Fanaticos al deporte" Style="{StaticResource TextNormal}" FontAttributes="Bold" FontSize="Title"/>
+                <Label Text="En esta pagina podras visualizar los diferentes eventos que te proporcionamos, Ademas podras inscribirte a ellos y estar al pediente de los ultimos acontecimientos." 
+            Style="{StaticResource TextNormal}"></Label>
+                <Label Text="Esta app se creo para fomentar el deporte y sana recreación" Style="{StaticResource LabelError}" FontSize="13" FontAttributes="Bold"></Label>
+            </StackLayout>
+
+            <StackLayout Grid.Row="2" Padding="60,1,60,20">
+                <Label Text="Deportes que podras encontar la app: " Style="{StaticResource TextNormal}" FontAttributes="Bold"></Label>
+            </StackLayout>
+
+            <StackLayout Grid.Row="3" Padding="60,1,60,10">
+                <StackLayout Orientation="Horizontal" Padding="0,0,0,0" Spacing="25">
+                    <controls:CircleImage Source="futbol.png" Style="{StaticResource ImagenIcon}"></controls:CircleImage>
+                    <Label Text="Futbol" Style="{StaticResource TextNormal}" FontSize="14"></Label>
+                    <controls:CircleImage Source="frisbee.jpg" Style="{StaticResource ImagenIcon}"></controls:CircleImage>
+                    <Label Text="Ultimate" Style="{StaticResource TextNormal}" FontSize="14"></Label>
+                </StackLayout>
+
+                <StackLayout Padding="0,0,0,0" Orientation="Horizontal" Spacing="25">
+                    <controls:CircleImage Source="Ciclismo.jpg" Style="{StaticResource ImagenIcon}"></controls:CircleImage>
+                    <Label Text="Mountain Bike" Style="{StaticResource TextNormal}" FontSize="14"></Label>
+                    <controls:CircleImage Source="golf.png" Style="{StaticResource ImagenIcon}"></controls:CircleImage>
+                    <Label Text="golf" Style="{StaticResource TextNormal}" FontSize="14"></Label>
+                </StackLayout>
+
+                <StackLayout Padding="0,0,0,0" Orientation="Horizontal" Spacing="25">
+                    <controls:CircleImage Source="iconBas.png" Style="{StaticResource ImagenIcon}"></controls:CircleImage>
+                    <Label Text="Baloncesto" Style="{StaticResource TextNormal}" FontSize="14"></Label>
+                    <controls:CircleImage Source="logopatinaje.jpg" Style="{StaticResource ImagenIcon}"></controls:CircleImage>
+                    <Label Text="Patinaje" Style="{StaticResource TextNormal}" FontSize="14"></Label>
+                </StackLayout>
+
+                <StackLayout Padding="0,0,0,0" Orientation="Horizontal" Spacing="25">
+                    <controls:CircleImage Source="natacion.png" Style="{StaticResource ImagenIcon}"></controls:CircleImage>
+                    <Label Text="Natación" Style="{StaticResource TextNormal}" FontSize="14"></Label>
+                    <controls:CircleImage Source="Voleyball.png" Style="{StaticResource ImagenIcon}"></controls:CircleImage>
+                    <Label Text="Voleyball" Style="{StaticResource TextNormal}" FontSize="14"></Label>
+                </StackLayout>
+
+            </StackLayout>
+
+        </Grid>
+    </ScrollView>
+</ContentPage>

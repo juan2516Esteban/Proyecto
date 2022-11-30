@@ -1,9 +1,7 @@
 ﻿using Proyecto_Final.Model;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Proyecto_Final.Views;
 using Proyecto_Final.Views.MaestroDetalle;
+using System.Collections.Generic;
 
 namespace Proyecto_Final.ViewModel
 {
@@ -14,6 +12,7 @@ namespace Proyecto_Final.ViewModel
         public string IconMaster;
         public string TitleMaster;
         public object ListMaster;
+
         #endregion
 
         #region Propiedades
@@ -40,10 +39,15 @@ namespace Proyecto_Final.ViewModel
 
         public MaestroDetailOrganizadorViewModel()
         {
+
             this.ListTxt = new List<MenuLateralModel>(new[]
             {
-                new MenuLateralModel { Id = 0 , Title = "Service", Icono="logo.jpg",TargetType= typeof(MainPage) },
-                new MenuLateralModel { Id = 0 , Title = "Paguina Pricipal", Icono="logo.jpg",TargetType= typeof(MaestroDetailOrganizador) }
+                new MenuLateralModel { Id = 0 , Title = "Crear Eventos", Icono="Lista.jpg",TargetType= typeof(AgregarEvento) },
+                new MenuLateralModel { Id = 0 , Title = "Modificar Eventos", Icono="Lista.jpg",TargetType= typeof(ModificarEventoView) },
+                new MenuLateralModel { Id = 0 , Title = "Visualizar Eventos", Icono="Lista.jpg",TargetType= typeof(MainPage) },
+                new MenuLateralModel { Id = 0 , Title = "Visualizar Participantes", Icono="Lista.jpg",TargetType= typeof(ParticipantesEventView) },
+                new MenuLateralModel { Id = 0 , Title = "Pagina Principal", Icono="Lista.jpg",TargetType= typeof(MaestroDetailOrganizador) },
+                new MenuLateralModel { Id = 0 , Title = "Cerrar Sesión", Icono="Lista.jpg",TargetType= typeof(IngresarView) }
             });
         }
     }

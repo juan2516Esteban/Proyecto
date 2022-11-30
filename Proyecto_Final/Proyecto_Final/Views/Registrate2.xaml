@@ -24,7 +24,7 @@
 
             <Label Grid.Row="3" HorizontalOptions="Center" Text="{Binding EdadTxt}"></Label>
 
-            <Entry Grid.Row="4" HorizontalOptions="Center"  Placeholder="Telefono"  Keyboard="Telephone"  MaxLength="10" Text="{Binding TelefonoTxt, Mode=TwoWay}"  ClearButtonVisibility="WhileEditing"></Entry>
+            <Entry Grid.Row="4" HorizontalOptions="Center"  Placeholder="Telefono"  Keyboard="Telephone"  MaxLength="10" Text="{Binding TelefonoTxt, Mode=TwoWay}"></Entry>
 
             <StackLayout Grid.Row="5" Orientation="Horizontal" Padding="50,20,0,0">
                 <Label Text="Modo Organizador" FontFamily="" FontAttributes="Bold" ></Label>
@@ -36,9 +36,9 @@
             </StackLayout>
 
             <StackLayout Grid.Row="7" Padding="50,20,30,30" IsVisible="{Binding TpUsuarioTxt}" x:Name="StacTransf">
-                <Label FontFamily="" FontAttributes="Bold" FontSize="13" Text="Acabas de seleccionar modo Organizador de enventos este modo te permitira subir tus eventos para que todo el mundo los vean y puedan participar de ellos, que esperas unete a esta comunidad"></Label>
-                <Entry Placeholder="Cedula" Keyboard="Numeric" MaxLength="10"  ClearButtonVisibility="WhileEditing"></Entry>
-                <Entry Placeholder="Dirección" Keyboard="Chat" MaxLength="30"  ClearButtonVisibility="WhileEditing"></Entry>
+                <Label FontFamily="" FontAttributes="Bold" FontSize="13" Text="Acabas de seleccionar modo Organizador de enventos este modo te permitira subir tus eventos para que todo el mundo los vea, y puedan participar de ellos, que esperas unete a esta comunidad"></Label>
+                <Entry Placeholder="Cedula" Keyboard="Numeric" MaxLength="10" Text="{Binding CedulaTxt,Mode=TwoWay}"></Entry>
+                <Entry Placeholder="Dirección" Keyboard="Chat" MaxLength="30" Text="{Binding DirecciónTxt,Mode=TwoWay}"></Entry>
             </StackLayout>
 
             <StackLayout Grid.Row="8" x:Name="StyleStac" HorizontalOptions="Center">

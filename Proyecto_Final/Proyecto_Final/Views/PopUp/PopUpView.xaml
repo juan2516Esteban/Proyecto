@@ -25,19 +25,19 @@
 
                 <StackLayout Background="white" Spacing="13" Padding="30,15,30,20">
 
-                    <Label Text="Imformación del evento: " FontAttributes="Bold" Style="{StaticResource TextNormal}" HorizontalOptions="Center" ></Label>
+                    <Label Text="Información del evento: " FontAttributes="Bold" Style="{StaticResource TextNormal}" HorizontalOptions="Center" ></Label>
 
                     <Label Text="Nombre del evento: " Style="{StaticResource TextNormal}" FontAttributes="Bold"></Label>
                     <Label Text="{Binding NombreEventTxt,Mode=TwoWay}" Style="{StaticResource TextNormal}"></Label>
                     <Label Text="Municipio donde se va va a realizar el evento: " Style="{StaticResource TextNormal}" FontAttributes="Bold"></Label>
                     <Label Text="{Binding MunicipioEventTxt}" Style="{StaticResource TextNormal}"></Label>
-                    <Label Text="Ubicación de evento" Style="{StaticResource TextNormal}" FontAttributes="Bold"></Label>
+                    <Label Text="Ubicación de evento: " Style="{StaticResource TextNormal}" FontAttributes="Bold"></Label>
                     <Label Text="{Binding LugarEventTxt}" Style="{StaticResource TextNormal}"></Label>
                     <Label Text="Deporte: " Style="{StaticResource TextNormal}" FontAttributes="Bold"></Label>
                     <Label Text="{Binding DeporteEventTxt}" Style="{StaticResource TextNormal}"></Label>
-                    <Label Text="Cupos disponibles a inscribir (Participantes o Equipos)" Style="{StaticResource TextNormal}" FontAttributes="Bold"></Label>
+                    <Label Text="Cupos disponibles a inscribir (Participantes o Equipos): " Style="{StaticResource TextNormal}" FontAttributes="Bold"></Label>
                     <Label Text="{Binding ParticipantesValue}" Style="{StaticResource TextNormal}"></Label>
-                    <Label Text="Descripción del evento" Style="{StaticResource TextNormal}" FontAttributes="Bold"></Label>
+                    <Label Text="Descripción del evento: " Style="{StaticResource TextNormal}" FontAttributes="Bold"></Label>
                     <Label Text="{Binding DescripciónTxt}" Style="{StaticResource TextNormal}"></Label>
                     <Label Text="Valor a pagar por partcipante: " Style="{StaticResource TextNormal}" FontAttributes="Bold"></Label>
                     <Label Text="{Binding ValorTotalTxt}" Style="{StaticResource TextNormal}"></Label>

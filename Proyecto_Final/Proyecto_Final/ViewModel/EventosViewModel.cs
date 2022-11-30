@@ -1,10 +1,7 @@
 ﻿using GalaSoft.MvvmLight.Command;
 using Proyecto_Final.Model;
-using Proyecto_Final.Views.MaestroDetalle;
+using Proyecto_Final.Views;
 using Rg.Plugins.Popup.Services;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -27,7 +24,7 @@ namespace Proyecto_Final.ViewModel
             DeporteEventTxt = Item.DeporteEvent;
             ParticipantesValue = Item.NumeroParticiEvent;
             ValorTotalTxt = Item.ValorYTotalEvent;
-            DescripciónTxt = Item.DeporteEvent;
+            DescripciónTxt = Item.Descripción;
             CodigoTxt = Item.CodigoPersonal;
             GastosAdicTxt = Item.ValorAdicionales;
             PolizaValueTxt = Item.ValorPolizaEvent;
@@ -50,7 +47,6 @@ namespace Proyecto_Final.ViewModel
         public string GanaciaTxt;
         public string imagenEvent;
         public int Id;
-        public bool SoloUnaVez = false;
         #endregion
 
         #region Propiedades
@@ -151,78 +147,64 @@ namespace Proyecto_Final.ViewModel
 
         public async void Inscribirse()
         {
-            if (SoloUnaVez == true)
+            if (ParticipantesValue > 0)
             {
-               await Application.Current.MainPage.DisplayAlert("Error", "solo te puedes inscribir una vez por evento", "ok");
-            }
-            else
-            {
-                if (ParticipantesValue > 0)
+
+                if (DeporteEventTxt == "Baloncesto" || DeporteEventTxt == "Futbol" || DeporteEventTxt == "Ultimate" || DeporteEventTxt == "Voleyball")
                 {
 
-                    if (DeporteEventTxt == "Baloncesto" || DeporteEventTxt == "Futbol" || DeporteEventTxt == "Ultimate" || DeporteEventTxt == "Voleyball")
-                    {
-                        SoloUnaVez = true;
 
-                        SubirEventModel userUpdate = new SubirEventModel();
+                    SubirEventModel userUpdate = new SubirEventModel();
 
-                        userUpdate.Id = Id;
-                        userUpdate.NombreEvent = NombreEvent;
-                        userUpdate.MunicipioEvent = Municipio;
-                        userUpdate.UbicaciónEvent = LugarEvent;
-                        userUpdate.DeporteEvent = Deporte;
-                        userUpdate.NumeroParticiEvent = Participantes;
-                        userUpdate.ValorPolizaEvent = PolizaTxt;
-                        userUpdate.ValorGananciaEvent = GanaciaTxt;
-                        userUpdate.ValorAdicionales = GastosAdicionales;
-                        userUpdate.ValorYTotalEvent = ValorTotal;
-                        userUpdate.Descripción = Descripción;
-                        userUpdate.CodigoPersonal = Codigo;
-                        userUpdate.Imagen = imagenEvent;
+                    userUpdate.Id = Id;
+                    userUpdate.NombreEvent = NombreEvent;
+                    userUpdate.MunicipioEvent = Municipio;
+                    userUpdate.UbicaciónEvent = LugarEvent;
+                    userUpdate.DeporteEvent = Deporte;
+                    userUpdate.NumeroParticiEvent = Participantes;
+                    userUpdate.ValorPolizaEvent = PolizaTxt;
+                    userUpdate.ValorGananciaEvent = GanaciaTxt;
+                    userUpdate.ValorAdicionales = GastosAdicionales;
+                    userUpdate.ValorYTotalEvent = ValorTotal;
+                    userUpdate.Descripción = Descripción;
+                    userUpdate.CodigoPersonal = Codigo;
+                    userUpdate.Imagen = imagenEvent;
 
 
-                        //await App.Db.DeleteModelAsync<SubirEventModel>(userUpdate);
-                        await Application.Current.MainPage.DisplayAlert("guadado", "equipos", "ok");
-                        await Application.Current.MainPage.Navigation.PushAsync(new MainPage());
-                        Volver();
-                    }
-                    else
-                    {
-                        SoloUnaVez = true;
-                        ParticipantesValue -= 1;
 
-                        SubirEventModel userUpdate = new SubirEventModel();
-
-
-                        userUpdate.Id = Id;
-                        userUpdate.NombreEvent = NombreEvent;
-                        userUpdate.MunicipioEvent = Municipio;
-                        userUpdate.UbicaciónEvent = LugarEvent;
-                        userUpdate.DeporteEvent = Deporte;
-                        userUpdate.NumeroParticiEvent = Participantes;
-                        userUpdate.ValorPolizaEvent = PolizaTxt;
-                        userUpdate.ValorGananciaEvent = GanaciaTxt;
-                        userUpdate.ValorAdicionales = GastosAdicionales;
-                        userUpdate.ValorYTotalEvent = ValorTotal;
-                        userUpdate.Descripción = Descripción;
-                        userUpdate.CodigoPersonal = Codigo;
-                        userUpdate.Imagen = imagenEvent;
-
-                        await App.Db.SaveModelAsync<SubirEventModel>(userUpdate, false);
-                        await Application.Current.MainPage.DisplayAlert("Tu inscripción a sido exitosa", "Ya estas participando en el evento " + NombreEventTxt + " te esperamos", "ok");
-                        Volver();
-                    }
+                    await Application.Current.MainPage.DisplayAlert("Ya estas a un paso de inscribirte", "A continuación regalanos unos datos para finalizar la inscripción", "ok");
+                    Volver2();
+                    await Application.Current.MainPage.Navigation.PushAsync(new EquiposView(userUpdate));
                 }
                 else
                 {
-                    await Application.Current.MainPage.DisplayAlert("Inscripciones cerradas", "la el limite de inscripciones fue superado, buena suerte para la proxima vez", "ok");
+
+                    SubirEventModel userUpdate = new SubirEventModel();
+
+
+                    userUpdate.Id = Id;
+                    userUpdate.NombreEvent = NombreEvent;
+                    userUpdate.MunicipioEvent = Municipio;
+                    userUpdate.UbicaciónEvent = LugarEvent;
+                    userUpdate.DeporteEvent = Deporte;
+                    userUpdate.NumeroParticiEvent = Participantes;
+                    userUpdate.ValorPolizaEvent = PolizaTxt;
+                    userUpdate.ValorGananciaEvent = GanaciaTxt;
+                    userUpdate.ValorAdicionales = GastosAdicionales;
+                    userUpdate.ValorYTotalEvent = ValorTotal;
+                    userUpdate.Descripción = Descripción;
+                    userUpdate.CodigoPersonal = Codigo;
+                    userUpdate.Imagen = imagenEvent;
+
+                    await Application.Current.MainPage.DisplayAlert("Ya estas a un paso de inscribirte", "A continuación regalanos unos datos para finalizar la inscripción", "ok");
+                    Volver2();
+                    await Application.Current.MainPage.Navigation.PushAsync(new InscribirseView(userUpdate));
                 }
             }
-        }
-        public async void Volver()
-        {
-            await Application.Current.MainPage.Navigation.PushAsync(new MaestroDetailOrganizador());
-            await PopupNavigation.Instance.PopAsync(true);
+            else
+            {
+                await Application.Current.MainPage.DisplayAlert("Inscripciones cerradas", "la el limite de inscripciones fue superado, buena suerte para la proxima vez", "ok");
+            }
         }
 
         public async void Volver2()

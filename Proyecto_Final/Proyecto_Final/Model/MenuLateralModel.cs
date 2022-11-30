@@ -1,7 +1,4 @@
-﻿using Proyecto_Final.Views.MaestroDetalle;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System;
 
 namespace Proyecto_Final.Model
 {

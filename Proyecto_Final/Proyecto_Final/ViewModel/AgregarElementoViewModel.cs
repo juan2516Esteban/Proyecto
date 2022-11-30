@@ -1,17 +1,11 @@
 ﻿using GalaSoft.MvvmLight.Command;
+using Plugin.LocalNotification;
 using Proyecto_Final.Model;
-using Rg.Plugins.Popup.Services;
+using Proyecto_Final.Views.MaestroDetalle;
 using System;
 using System.Collections.Generic;
 using System.Windows.Input;
 using Xamarin.Forms;
-using SQLite;
-
-
-
-
-
-
 
 namespace Proyecto_Final.ViewModel
 {
@@ -195,9 +189,14 @@ namespace Proyecto_Final.ViewModel
 
         public async void SubirEventMethods()
         {
-
             var randomNumber = new Random().Next(0, 100);
             CodigoTxt = randomNumber;
+
+            var notif = new NotificationRequest();
+            notif.Title = "Fanaticos Al Deporte";
+            notif.Description = "Tu evento" + NombreEventTxt + "a sido guardado exitosamente, Recuerda tu codigo personal es: " + CodigoTxt;
+            notif.BadgeNumber = 5;
+            notif.NotificationId = 1;
 
             SubirEventModel evento = new SubirEventModel();
 
@@ -254,14 +253,16 @@ namespace Proyecto_Final.ViewModel
 
             if (NombreEventTxt is null || NombreEventTxt == "" || MunicipioEventTxt is null || LugarEventTxt is null || LugarEventTxt == "" || DeporteEventTxt is null || ParticipantesValue == 0 || ValorTotalTxt == 0 || DescripciónTxt is null || DescripciónTxt == "")
             {
-                await Application.Current.MainPage.DisplayAlert("Por favor llenar los campos vacios", "Error no se pudo guadar la información", "ok");
+                await Application.Current.MainPage.DisplayAlert("Por favor llenar los campos vacios", "Error no se pudo guardar la información", "ok");
             }
             else
             {
                 await App.Db.SaveModelAsync<SubirEventModel>(evento, true);
                 await App.Db.SaveModelAsync<SubirEventModel>(evento, false);
-                await Application.Current.MainPage.DisplayAlert("Datos guardados correctamente", "el evento " + NombreEventTxt + " ha sido guardado correctamente en este momento puedes ver como se visualiza" +
-                    "imporatante tu codigo para hacer cualquier cambio al evento es " + randomNumber + ".", "Ok");
+                await Application.Current.MainPage.DisplayAlert("Datos guardados correctamente", "el evento " + NombreEventTxt + " ha sido guardado correctamente en este momento puedes ver como se visualiza, " +
+                    "importante tu codigo para hacer cualquier cambio al evento es " + randomNumber + ".", "Ok");
+                await Application.Current.MainPage.Navigation.PushAsync(new MaestroDetailOrganizador());
+                await LocalNotificationCenter.Current.Show(notif);
             }
 
         }

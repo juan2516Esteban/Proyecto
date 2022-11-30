@@ -73,14 +73,14 @@ namespace Proyecto_Final.ViewModel
 
                     await App.Db.SaveModelAsync<UserModel>(user, true);
                     await App.Db.SaveModelAsync<UserModel>(user, false);
-                    await Application.Current.MainPage.DisplayAlert("Tus datos an sido guardado correctamente", "Bienvendo " + jdl.Name + " ya eres parte de fanaticos al deporte, que esperas para iniciar seción", "Ok");
+                    await Application.Current.MainPage.DisplayAlert("Tus datos an sido guardado correctamente", "Bienvendo " + jdl.Name + " ya eres parte de fanaticos al deporte, que esperas para iniciar sesión", "Ok");
                     await Application.Current.MainPage.Navigation.PushAsync(new IngresarView());
                 }
                 else
                 {
                     if (DirecciónTxt is null || DirecciónTxt == "" || CedulaTxt is null || CedulaTxt == "")
                     {
-                        await Application.Current.MainPage.DisplayAlert("Por favor llenar los campos vacios", "Error no se pudo guadar la información", "ok");
+                        await Application.Current.MainPage.DisplayAlert("Por favor llenar los campos vacios", "Error no se pudo guardar la información", "ok");
                     }
                     else
                     {
@@ -97,7 +97,7 @@ namespace Proyecto_Final.ViewModel
 
                         await App.Db.SaveModelAsync<OrganizadorModel>(user2, true);
                         await App.Db.SaveModelAsync<OrganizadorModel>(user2, false);
-                        await Application.Current.MainPage.DisplayAlert("Tus datos an sido guardado correctamente", "Bienvendo " + jdl.Name + " ya eres parte de fanaticos al deporte, que esperas para iniciar seción", "Ok");
+                        await Application.Current.MainPage.DisplayAlert("Tus datos an sido guardado correctamente", "Bienvendo " + jdl.Name + " ya eres parte de fanaticos al deporte, que esperas para iniciar sesión", "Ok");
                         await Application.Current.MainPage.Navigation.PushAsync(new IngresarView());
                     }
                 }

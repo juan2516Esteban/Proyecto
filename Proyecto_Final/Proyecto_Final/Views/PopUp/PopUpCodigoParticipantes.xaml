@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<popup:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Proyecto_Final.Views.PopUp.PopUpCodigoParticipantes" xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             xmlns:popup ="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             xmlns:Font_ico="clr-namespace:Proyecto_Final.Fuentes">
+
+    <Frame Margin="50">
+
+        <ScrollView>
+
+            <Grid>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <StackLayout Grid.Row="0" Padding="0,0,0,20" Background="white">
+                    <Button FontFamily="fontello" Text="{x:Static Font_ico:icon.Undo}" Style="{StaticResource IconButton}" Command="{Binding VolverComads , Mode=TwoWay}"></Button>
+                </StackLayout>
+
+                <controls:CircleImage Grid.Row="1" Source="logo.jpg" HeightRequest="100" WidthRequest="100"></controls:CircleImage>
+
+                <Label Grid.Row="2" Text="Visualizar Participantes" Style="{StaticResource TextNormal}" FontAttributes="Bold" HorizontalOptions="Center"></Label>
+
+                <StackLayout Grid.Row="3" Background="white">
+                    <Entry Placeholder="Codigo" Keyboard="Numeric" Background="white" Text="{Binding CodigoEntryTxt ,Mode=TwoWay}"></Entry>
+                    <Label Text="Aca podras visualizar los participantes de tus eventos, de tal manera que solo tendras que digitar el codigo que te dimos al principio cuando creaste tu evento" Style="{StaticResource TextNormal}" FontAttributes="Bold" FontSize="Small"></Label>
+                    <Button Text="Visualizar Participantes" FontAttributes="Bold" Command="{Binding CodigoPersonalCommand}" FontSize="Small"></Button>
+                </StackLayout>
+
+            </Grid>
+        </ScrollView>
+
+    </Frame>
+
+
+
+</popup:PopupPage>
