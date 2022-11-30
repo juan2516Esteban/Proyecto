@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<popup:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Proyecto_Final.Views.PopUp.PopUpParticipantes"
+             xmlns:popup ="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             xmlns:Font_ico="clr-namespace:Proyecto_Final.Fuentes">
+    
+    <Frame Margin="70">
+
+        <Grid>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Button Grid.Row="0" FontFamily="fontello" Text="{x:Static Font_ico:icon.Undo}" Style="{StaticResource IconButton}" Command="{Binding VolverComads}"></Button>
+
+
+
+            <ScrollView Grid.Row="1">
+
+                <StackLayout Background="white" Spacing="13" Padding="30,15,30,20">
+
+                    <Label Text="Información del Participante: " FontAttributes="Bold" Style="{StaticResource TextNormal}" HorizontalOptions="Center" ></Label>
+
+                    <Label Text="Nombre del Participante: " Style="{StaticResource TextNormal}" FontAttributes="Bold"></Label>
+                    <Label Text="{Binding NombreUserTxt,Mode=TwoWay}" Style="{StaticResource TextNormal}"></Label>
+                    <Label Text="Correo Electronico del participante: " Style="{StaticResource TextNormal}" FontAttributes="Bold"></Label>
+                    <Label Text="{Binding EmailUserTxt}" Style="{StaticResource TextNormal}"></Label>
+                    <Label Text="La edad del participante es: " Style="{StaticResource TextNormal}" FontAttributes="Bold"></Label>
+                    <Label Text="{Binding EdadUserTxt}" Style="{StaticResource TextNormal}"></Label>
+                    <Label Text="Codigo del evento: " Style="{StaticResource TextNormal}" FontAttributes="Bold"></Label>
+                    <Label Text="{Binding CodigoTxt}" Style="{StaticResource TextNormal}"></Label>
+                    <Label Text="Telefono del participante: " Style="{StaticResource TextNormal}" FontAttributes="Bold"></Label>
+                    <Label Text="{Binding TelefonoUserTxt}" Style="{StaticResource TextNormal}"></Label>
+                    <Label Text="Id del participante: " Style="{StaticResource TextNormal}" FontAttributes="Bold"></Label>
+                    <Label Text="{Binding IdValueEvent}" Style="{StaticResource TextNormal}"></Label>
+                    
+                </StackLayout>
+            </ScrollView>
+
+
+
+        </Grid>
+
+    </Frame>
+
+</popup:PopupPage>

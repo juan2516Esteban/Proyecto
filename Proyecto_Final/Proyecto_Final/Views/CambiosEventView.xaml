@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Proyecto_Final.Views.CambiosEventView"
+             Title="Volver">
+    <ContentPage.Content>
+        <StackLayout>
+            <ScrollView VerticalOptions="FillAndExpand" Background="{StaticResource Primary}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <StackLayout Grid.Row="0" Spacing="0">
+                        <Label Text="Modificar el evento:" Style="{StaticResource TextNormal}" FontAttributes="Bold"></Label>
+                        <Label Text="{Binding NombreEventTxt,Mode=TwoWay}" Style="{StaticResource TextNormal}" FontAttributes="Bold"></Label>
+                        
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="1" Style="{StaticResource registro}">
+                        <Entry Placeholder="Nombre del evento" Keyboard="Chat" Text="{Binding NombreEventTxt , Mode=TwoWay}"></Entry>
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="2" Style="{StaticResource registro}">
+                        <Label Text="Municio" Style="{StaticResource TextNormal}" FontAttributes="Bold"></Label>
+                        <Picker x:Name="PikerMunicipio" TextColor="Black" WidthRequest="9000" Background="#CEE5D0" Title="Seleccione una opción" SelectedItem="{Binding MunicipioEventTxt,Mode=TwoWay}"></Picker>
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="3" Style="{StaticResource registro}">
+                        <Entry Placeholder="Ubicación" Keyboard="Chat" Text="{Binding LugarEventTxt ,Mode=TwoWay}"/>
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="4" Style="{StaticResource registro}">
+                        <Label Text="Deporte" Style="{StaticResource TextNormal}" FontAttributes="Bold"></Label>
+                        <Picker x:Name="PikerDeporte" TextColor="Black" Background="#CEE5D0" WidthRequest="9000" SelectedIndexChanged="PikerDeporte_SelectedIndexChanged" SelectedItem="{Binding DeporteEventTxt,Mode=TwoWay}" Title="Seleccione una opción"></Picker>
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="5" Style="{StaticResource registro}">
+                        <Label Text="Numero de participante" x:Name="LabelPartcipantes" Style="{StaticResource TextNormal}" FontAttributes="Bold"></Label>
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="6" Orientation="Horizontal" Style="{StaticResource registro}">
+                        <Stepper Value="{Binding ParticipantesValue ,Mode=TwoWay}" x:Name="stp" />
+                        <Label BindingContext="{x:Reference stp}" Text="{Binding Value}" Style="{StaticResource TextNormal}" FontAttributes="Bold" FontSize="20" Padding="1">
+                        </Label>
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="7" Style="{StaticResource registro}">
+                        <Label Text="Valor de la poliza por persona" Style="{StaticResource TextNormal}" FontAttributes="Bold"></Label>
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="8" Style="{StaticResource registro}" Orientation="Horizontal">
+                        <Stepper x:Name="stpValorPoliza" Value="{Binding PolizaValue}"></Stepper>
+                        <Label BindingContext="{x:Reference stpValorPoliza}" FontAttributes="Bold" Text="{Binding Value,StringFormat='{0:F3}'}" Style="{StaticResource TextNormal}" FontSize="20" Padding="1"></Label>
+                        <Label Text="{Binding PolizaValueTxt,Mode=TwoWay}" IsVisible="false"></Label>
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="9" Style="{StaticResource registro}">
+                        <Label Text="Valor de ingresos propios" Style="{StaticResource TextNormal}" FontAttributes="Bold"></Label>
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="10" Style="{StaticResource registro}" Orientation="Horizontal">
+                        <Stepper x:Name="ganacia" Value="{Binding GanaciaValue , Mode=TwoWay}"></Stepper>
+                        <Label BindingContext="{x:Reference ganacia}" FontAttributes="Bold" Style="{StaticResource TextNormal}" Text="{Binding Value , StringFormat='{0:F3}'}" Padding="1" FontSize="20"></Label>
+                        <Label Text="{Binding GananciaValueTxt , Mode=TwoWay}" IsVisible="false"></Label>
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="11" Style="{StaticResource registro}" Spacing="5">
+                        <Label Text="valores adicionales (Arbitrajes o" FontAttributes="Bold" Style="{StaticResource TextNormal}"></Label>
+                        <Label Text="preamiación)" FontAttributes="Bold" Style="{StaticResource TextNormal}"></Label>
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="12" Style="{StaticResource registro}" Orientation="Horizontal">
+                        <Stepper x:Name="GastosAdicionales" Value="{Binding GatosAdicValue,Mode=TwoWay}"></Stepper>
+                        <Label BindingContext="{x:Reference GastosAdicionales}" Text="{Binding Value , StringFormat='{0:F3}'}" Padding="1" FontSize="20" FontAttributes="Bold" Style="{StaticResource TextNormal}"></Label>
+                        <Label Text="{Binding GastosAdicTxt,Mode=TwoWay}" IsVisible="false"></Label>
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="13" Style="{StaticResource registro}" Orientation="Horizontal" Spacing="0">
+                        <StackLayout Style="{StaticResource registro}" Spacing="5" Padding="0,0,25,0">
+                            <Label Text="El valor por inscripción" Style="{StaticResource TextNormal}" FontAttributes="Bold"></Label>
+                            <Label Text="por persona es de: " Style="{StaticResource TextNormal}" FontAttributes="Bold"></Label>
+                        </StackLayout>
+
+                        <Label Text="{Binding ValorTotalTxt}" Style="{StaticResource TextNormal}" FontAttributes="Bold" Padding="1" FontSize="20"></Label>
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="14" Style="{StaticResource registro}" Spacing="5">
+                        <Editor Placeholder="Descripción del evento" Background="#CEE5D0" TextColor="Black" MinimumWidthRequest="700" Text="{Binding DescripciónTxt ,Mode=TwoWay}"></Editor>
+                        <Label Text="Por favor poner en la descripción del evento como ese la premiación, lugar, categoria si la hay, dia-fecha etc." Style="{StaticResource LabelError}" FontAttributes="Bold"></Label>
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="15" Style="{StaticResource registro}" Spacing="5">
+                        <Label Text="Descripción: " Style="{StaticResource TextNormal}" FontAttributes="Bold"></Label>
+                        <Label Text="{Binding DescripciónTxt , Mode=TwoWay}" Style="{StaticResource TextNormal}"></Label>
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="16" HorizontalOptions="Center">
+                        <Button Text="Subir Evento" Command="{Binding CambiosEventComads , Mode=TwoWay}"></Button>
+                    </StackLayout>
+
+                </Grid>
+
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

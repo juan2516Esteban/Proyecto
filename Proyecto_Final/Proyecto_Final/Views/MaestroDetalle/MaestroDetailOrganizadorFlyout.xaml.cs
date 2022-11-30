@@ -1,7 +1,4 @@
 ﻿using Proyecto_Final.ViewModel;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;

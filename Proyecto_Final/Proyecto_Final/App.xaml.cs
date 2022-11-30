@@ -28,7 +28,7 @@ namespace Proyecto_Final
         {
             InitializeComponent();
 
-            MainPage = new CustomNav(new MaestroDetailOrganizador());
+            MainPage = new CustomNav(new IngresarView());
         }
 
         protected override void OnStart()
@@ -40,7 +40,9 @@ namespace Proyecto_Final
 
             List<SubirEventModel> Eventos = App.Db.GetTableModel<SubirEventModel>().Result;
 
+            List<PartDeporIndiviModel> Deportistas = App.Db.GetTableModel<PartDeporIndiviModel>().Result;
 
+            List<PartEquiposModel> Equipos = App.Db.GetTableModel<PartEquiposModel>().Result;
         }
 
         protected override void OnSleep()

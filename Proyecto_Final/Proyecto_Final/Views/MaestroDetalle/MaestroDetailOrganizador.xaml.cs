@@ -1,6 +1,5 @@
 ﻿using Proyecto_Final.Model;
 using System;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -24,7 +23,7 @@ namespace Proyecto_Final.Views.MaestroDetalle
             var page = (Page)Activator.CreateInstance(item.TargetType);
             page.Title = item.Title;
 
-            Detail = new NavigationPage(page);
+            Detail = new CustomNav(page);
             IsPresented = false;
 
             FlyoutPage.ListView.SelectedItem = null;

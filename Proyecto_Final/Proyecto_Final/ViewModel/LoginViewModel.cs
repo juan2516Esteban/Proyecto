@@ -1,6 +1,6 @@
 ﻿using GalaSoft.MvvmLight.Command;
 using Proyecto_Final.Model;
-using Proyecto_Final.Views;
+using Proyecto_Final.Views.MaestroDetalle;
 using System.Collections.Generic;
 using System.Windows.Input;
 using Application = Xamarin.Forms.Application;
@@ -40,7 +40,7 @@ namespace Proyecto_Final.ViewModel
         {
             if (CorreoTxt is null || CorreoTxt == "" || ContraseñaTxt is null || ContraseñaTxt == "")
             {
-                await Application.Current.MainPage.DisplayAlert("Por favor llenar los campos vacios", "Error no se pudo guadar la información", "ok");
+                await Application.Current.MainPage.DisplayAlert("Por favor llenar los campos vacios", "Error no se pudo guardar la información", "ok");
             }
             else
             {
@@ -54,12 +54,12 @@ namespace Proyecto_Final.ViewModel
                 if (ListUser.Count > 0)
                 {
                     await Application.Current.MainPage.DisplayAlert("Bienvenido", "Acabas de ingresar a fanaticos al deporte", "Ok");
-
+                    await Application.Current.MainPage.Navigation.PushAsync(new MaestroUsuario());
                 }
                 else if (ListUserOrganizador.Count > 0)
                 {
-                    await Application.Current.MainPage.DisplayAlert("Bienvenido", "Acabas de ingresar a fanaticos al deporte, como Organizador de enventos", "Ok");
-                    await Application.Current.MainPage.Navigation.PushAsync(new AgregarEvento());
+                    await Application.Current.MainPage.DisplayAlert("Bienvenido", "Acabas de ingresar a fanaticos al deporte, como Organizador de eventos", "Ok");
+                    await Application.Current.MainPage.Navigation.PushAsync(new MaestroDetailOrganizador());
                 }
                 else
                 {

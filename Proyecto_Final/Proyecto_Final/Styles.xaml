@@ -40,6 +40,7 @@
         <Setter Property="FontFamily" Value="MutterKrauseNormal"></Setter>
         <Setter Property="WidthRequest" Value="300"></Setter>
         <Setter Property="MaxLength" Value="60"></Setter>
+        <Setter Property="ClearButtonVisibility" Value="WhileEditing"></Setter>
     </Style>
 
     <Style x:Key="Edades" TargetType="Slider">
@@ -95,6 +96,11 @@
         <Setter Property="WidthRequest" Value="50"></Setter>
         <Setter Property="HorizontalOptions" Value="Start"></Setter>
        
+    </Style>
+
+    <Style x:Key="ImagenIcon" TargetType="Image">
+        <Setter Property="HeightRequest" Value="30"></Setter>
+        <Setter Property="WidthRequest" Value="30"></Setter>
     </Style>
 
 </ResourceDictionary>

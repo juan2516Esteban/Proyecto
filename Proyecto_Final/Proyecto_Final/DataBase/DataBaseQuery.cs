@@ -15,6 +15,8 @@ namespace Proyecto_Final.DataBase
             _database.CreateTableAsync<UserModel>().Wait();
             _database.CreateTableAsync<OrganizadorModel>().Wait();
             _database.CreateTableAsync<SubirEventModel>().Wait();
+            _database.CreateTableAsync<PartDeporIndiviModel>().Wait();
+            _database.CreateTableAsync<PartEquiposModel>().Wait();
         }
 
         #region CRUD
